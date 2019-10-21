@@ -25,6 +25,10 @@ public class Order {
 	 * 下单者Id
 	 */
 	private String userId;
+	/**
+	 * 备注
+	 */
+	private String remark;
 	
 	public String getId() {
 		return id;
@@ -51,6 +55,14 @@ public class Order {
 	
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
+	public String getRemark() {
+		return remark;
 	}
 	
 }

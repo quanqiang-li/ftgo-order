@@ -14,18 +14,19 @@ import com.order.service.OrderService;
 @RequestMapping("order")
 public class OrderController {
 
+	// 暂存创建的order
 	public static ConcurrentHashMap<String, Order> OrderMap = new ConcurrentHashMap<>();
 	
 	@Autowired
 	private OrderService orderService;
 	
 	@GetMapping("createOrder")
-	public String createOrder(String orderId,String userId) {
+	public Order createOrder(String orderId,String userId) {
 		if(OrderMap.containsKey(orderId)) {
 			//return "不能重复创建订单" + orderId;
 		}
 		Order order = orderService.createOrder(orderId, userId);
 		OrderMap.put(orderId, order);
-		return "创建订单成功"+orderId;
+		return order;
 	}
 }
